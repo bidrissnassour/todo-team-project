@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Bouton modifier
         const editBtn = document.createElement("button");
-        editBtn.textContent = "✏️";
+        editBtn.textContent = "✏️ Edit";
         editBtn.style.marginLeft = "10px";
         editBtn.addEventListener("click", () => {
             const newText = prompt("Modifier la tâche :", span.textContent);
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Bouton supprimer
         const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "❌";
+        deleteBtn.textContent = "❌ Delete";
         deleteBtn.style.marginLeft = "10px";
         deleteBtn.addEventListener("click", () => {
             taskList.removeChild(li);
