@@ -1,32 +1,46 @@
-  HEAD
-const addBtn = document.getElementById('addBtn');
-const taskInput = document.getElementById('taskInput');
-const taskList = document.getElementById('taskList');
+document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("taskInput");
+    const addBtn = document.getElementById("addBtn");
+    const taskList = document.getElementById("taskList");
 
-addBtn.addEventListener('click', function() {
-  const text = taskInput.value.trim();
-  if (text === '') return;
+    // Fonction pour créer une tâche
+    function createTask(taskText) {
+        const li = document.createElement("li");
 
-  const li = document.createElement('li');
-  li.innerHTML = `
-    <span class="task-text">${text}</span>
-    <div class="buttons">
-      <button class="done-btn">✅ Terminer</button>
-      <button class="delete-btn">🗑️ Supprimer</button>
-    </div>
-  `;
+        const span = document.createElement("span");
+        span.textContent = taskText;
 
-  li.querySelector('.done-btn').addEventListener('click', () => {
-    li.classList.toggle('done');
-  });
+        // Bouton modifier
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "✏️";
+        editBtn.style.marginLeft = "10px";
+        editBtn.addEventListener("click", () => {
+            const newText = prompt("Modifier la tâche :", span.textContent);
+            if (newText && newText.trim() !== "") {
+                span.textContent = newText.trim();
+            }
+        });
 
-  li.querySelector('.delete-btn').addEventListener('click', () => {
-    li.remove();
-  });
+        // Bouton supprimer
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "❌";
+        deleteBtn.style.marginLeft = "10px";
+        deleteBtn.addEventListener("click", () => {
+            taskList.removeChild(li);
+        });
 
-  taskList.appendChild(li);
-  taskInput.value = '';
+        li.appendChild(span);
+        li.appendChild(editBtn);
+        li.appendChild(deleteBtn);
+        taskList.appendChild(li);
+    }
+
+    // Ajouter une tâche
+    addBtn.addEventListener("click", () => {
+        const task = input.value.trim();
+        if (task !== "") {
+            createTask(task);
+            input.value = "";
+        }
+    });
 });
-=======
-
->>>>>>> 34c4fc405c46516ae1c062fea347488a32c7f2c3
