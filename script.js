@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const addBtn = document.getElementById('addBtn');
 const taskInput = document.getElementById('taskInput');
 const taskList = document.getElementById('taskList');
@@ -26,3 +27,6 @@ addBtn.addEventListener('click', function() {
   taskList.appendChild(li);
   taskInput.value = '';
 });
+=======
+
+>>>>>>> 34c4fc405c46516ae1c062fea347488a32c7f2c3
